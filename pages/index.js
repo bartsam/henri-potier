@@ -1,12 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import Search from "../components/atoms/Search";
 import styles from "../styles/Home.module.css";
 import { useCart } from "../utils/hooks";
+import { normalizeText } from "../utils/helpers";
 
 export default function Home({ books }) {
   const { handleCartItems } = useCart();
-
   return (
     <>
       <Head>
@@ -17,13 +18,16 @@ export default function Home({ books }) {
       <Link href={`/cart`}>
         <a>cart</a>
       </Link>
+      <Search books={books} />
       <ul>
         {books.map((book, key) => (
           <li key={key}>
-            <Link href={`/book/${book.isbn}`}>
+            <Link href={`/book/${normalizeText(book.title, "link")}`}>
               <a>{book.title}</a>
             </Link>
-            <button onClick={() => handleCartItems(book)}>add to cart</button>
+            <button onClick={() => handleCartItems("add", book)}>
+              add to cart
+            </button>
           </li>
         ))}
       </ul>

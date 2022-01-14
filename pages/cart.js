@@ -3,7 +3,7 @@ import Spinner from "../components/atoms/Spinner";
 import { useCart, useFetch } from "../utils/hooks";
 
 export default function Cart() {
-  const { cart } = useCart();
+  const { cart, handleCartItems } = useCart();
   const itemsIsbnString = cart.items.map((item) => item.isbn).toString();
   const { data, isLoading, error } = useFetch(
     `https://henri-potier.techx.fr/books/${itemsIsbnString}/commercialOffers`,
@@ -17,7 +17,14 @@ export default function Cart() {
       <p>cart</p>
       <ul>
         {cart.items.map((item, key) => (
-          <li key={key}>{item.title + " x" + item.qty}</li>
+          <li key={key}>
+            <Link href={`/book/${item.isbn}`}>
+              <a>{item.title + " x" + item.qty}</a>
+            </Link>
+            <button onClick={() => handleCartItems("remove", item)}>
+              remove from cart
+            </button>
+          </li>
         ))}
       </ul>
       {cart.items.length === 0 ? (

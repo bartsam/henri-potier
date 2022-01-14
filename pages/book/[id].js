@@ -1,12 +1,15 @@
 import Link from "next/link";
+import Search from "../../components/atoms/Search";
+import { normalizeText } from "../../utils/helpers";
 
-export default function Book({ book }) {
-  console.log(book);
+export default function Book({ books, book }) {
   return (
     <>
       <Link href="/">
         <a>Home</a>
       </Link>
+      <Search books={books} />
+
       <p>{book.title}</p>
     </>
   );
@@ -18,7 +21,10 @@ export async function getServerSideProps({ params }) {
   );
   return {
     props: {
-      book: books.filter((currentBook) => currentBook.isbn === params.id)[0],
+      books: books,
+      book: books.filter(
+        (currentBook) => normalizeText(currentBook.title, "link") === params.id
+      )[0],
     },
   };
 }
