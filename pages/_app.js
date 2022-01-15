@@ -1,5 +1,5 @@
-import "../styles/globals.css";
-import { CartProvider } from "../utils/context";
+import "styles/index.scss";
+import { CartProvider } from "utils/context";
 
 function MyApp({ Component, pageProps }) {
   return (

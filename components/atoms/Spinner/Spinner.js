@@ -1,7 +1,13 @@
-const Spinner = () => {
+import styles from "./Spinner.module.scss";
+
+const Spinner = ({ theme }) => {
   return (
-    <div className="spinner">
-      <span className="spinner--label">Loading</span>
+    <div
+      className={`${styles.spinner} ${
+        theme ? styles[`spinner--${theme}`] : ""
+      }`}
+    >
+      <span>Loading</span>
     </div>
   );
 };

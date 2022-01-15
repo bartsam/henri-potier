@@ -1,0 +1,44 @@
+@import "mixins";
+@import "variables";
+
+.library {
+  padding: $regularSize;
+  h2 {
+    margin: 0;
+    padding-bottom: $regularSize;
+    font-size: $largeFont;
+  }
+}
+.wrapper {
+  background: $whiten;
+  padding: $regularSize;
+  border-radius: calc($regularSize/5);
+}
+.grid {
+  display: grid;
+  grid-gap: $regularSize;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+}
+@include tablet() {
+  .library {
+    padding: calc($regularSize * 3);
+    h2 {
+      padding: calc($regularSize * 2) 0;
+    }
+  }
+  .wrapper {
+    padding: 0 calc($regularSize * 3) calc($regularSize * 3)
+      calc($regularSize * 3);
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@include desktop() {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

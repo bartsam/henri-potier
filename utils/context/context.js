@@ -11,15 +11,24 @@ export const CartProvider = ({ children }) => {
     const isArlreadyInCart = cart.items.filter(
       (item) => item.isbn === currentItem.isbn
     );
-    if (action === "remove" && isArlreadyInCart.length > 0) {
+    if (action === "reset" && isArlreadyInCart.length > 0) {
       setCart({
         ...cart,
+        qty: cart.qty - 1,
         items: cart.items.filter((item) => {
-          console.log(item.isbn);
-          console.log(currentItem.isbn);
-
           return item.isbn !== currentItem.isbn;
         }),
+      });
+    }
+    if (action === "remove" && isArlreadyInCart.length > 0) {
+      const updateItem = cart.items.filter(
+        (item) => item.isbn === currentItem.isbn
+      )[0];
+      updateItem.qty -= 1;
+      setCart({
+        ...cart,
+        qty: cart.qty - 1,
+        items: [...cart.items],
       });
     }
     if (action === "add") {
@@ -27,6 +36,7 @@ export const CartProvider = ({ children }) => {
         currentItem["qty"] = 1;
         setCart({
           ...cart,
+          qty: cart.qty + 1,
           items: [...cart.items, currentItem],
         });
       } else {
@@ -36,6 +46,7 @@ export const CartProvider = ({ children }) => {
         updateItem.qty += 1;
         setCart({
           ...cart,
+          qty: cart.qty + 1,
           items: [...cart.items],
         });
       }

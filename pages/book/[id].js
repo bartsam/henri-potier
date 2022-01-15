@@ -1,15 +1,11 @@
-import Link from "next/link";
-import Search from "../../components/atoms/Search";
-import { normalizeText } from "../../utils/helpers";
+import Header from "components/organisms/Header";
+import Search from "components/atoms/Search";
+import { normalizeText } from "utils/helpers";
 
 export default function Book({ books, book }) {
   return (
     <>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
-      <Search books={books} />
-
+      <Header books={books} />
       <p>{book.title}</p>
     </>
   );

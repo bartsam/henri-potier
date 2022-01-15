@@ -1,36 +1,20 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import Search from "../components/atoms/Search";
-import styles from "../styles/Home.module.css";
-import { useCart } from "../utils/hooks";
-import { normalizeText } from "../utils/helpers";
+import Header from "components/organisms/Header";
+import Library from "components/organisms/Library";
 
 export default function Home({ books }) {
-  const { handleCartItems } = useCart();
   return (
     <>
       <Head>
         <title>Henri Potier</title>
         <meta name="description" content="La bibliothèque d'Henri Potier" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
       </Head>
-      <Link href={`/cart`}>
-        <a>cart</a>
-      </Link>
-      <Search books={books} />
-      <ul>
-        {books.map((book, key) => (
-          <li key={key}>
-            <Link href={`/book/${normalizeText(book.title, "link")}`}>
-              <a>{book.title}</a>
-            </Link>
-            <button onClick={() => handleCartItems("add", book)}>
-              add to cart
-            </button>
-          </li>
-        ))}
-      </ul>
+      <Header books={books} />
+      <Library books={books} />
     </>
   );
 }
