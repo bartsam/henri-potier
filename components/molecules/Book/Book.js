@@ -7,9 +7,12 @@ import Image from "next/image";
 import { Plus, Minus, ShoppingCart } from "react-feather";
 
 export default function Book({ book }) {
-  const { handleCartItems } = useCart();
-  const { title, cover, price, qty } = book;
+  const { cart, handleCartItems } = useCart();
+  const { title, cover, price } = book;
   const path = `/book/${normalizeText(title, "link")}`;
+
+  const isBookInCart = cart.items.filter((item) => item.isbn === book.isbn)[0];
+  console.log(book);
   return (
     <div className={styles.book}>
       <Link href={path}>
@@ -22,7 +25,7 @@ export default function Book({ book }) {
       </Link>
       <div className={styles.footer}>
         <p className={styles.price}>{`${price}€`}</p>
-        {/* {qty ? (
+        {isBookInCart && isBookInCart.qty ? (
           <div className={styles.quantity}>
             <Button
               label="Add to bag"
@@ -31,7 +34,7 @@ export default function Book({ book }) {
             >
               <Minus size={16} color="white" />
             </Button>
-            <span>{qty}</span>
+            <span>{isBookInCart.qty}</span>
             <Button
               label="Add to bag"
               theme="primary"
@@ -48,14 +51,14 @@ export default function Book({ book }) {
           >
             <ShoppingCart size={16} color="black" />
           </Button>
-        )} */}
-        <Button
+        )}
+        {/* <Button
           label="Add to bag"
           theme="primary"
           event={() => handleCartItems("add", book)}
         >
           <ShoppingCart size={16} color="black" />
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

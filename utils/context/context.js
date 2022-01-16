@@ -1,10 +1,12 @@
 import React, { useState, createContext } from "react";
 
 export const CartContext = createContext();
+
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState({
     qty: 0,
     items: [],
+    total: 0,
   });
 
   const handleCartItems = (action, currentItem) => {
@@ -18,36 +20,34 @@ export const CartProvider = ({ children }) => {
         items: cart.items.filter((item) => {
           return item.isbn !== currentItem.isbn;
         }),
+        total: cart.total - currentItem.price,
       });
     }
     if (action === "remove" && isArlreadyInCart.length > 0) {
-      const updateItem = cart.items.filter(
-        (item) => item.isbn === currentItem.isbn
-      )[0];
-      updateItem.qty -= 1;
+      currentItem.qty -= 1;
       setCart({
         ...cart,
         qty: cart.qty - 1,
         items: [...cart.items],
+        total: cart.total - currentItem.price,
       });
     }
     if (action === "add") {
       if (isArlreadyInCart.length === 0) {
-        currentItem["qty"] = 1;
+        currentItem.qty = 1;
         setCart({
           ...cart,
           qty: cart.qty + 1,
           items: [...cart.items, currentItem],
+          total: cart.total + currentItem.price,
         });
       } else {
-        const updateItem = cart.items.filter(
-          (item) => item.isbn === currentItem.isbn
-        )[0];
-        updateItem.qty += 1;
+        currentItem.qty += 1;
         setCart({
           ...cart,
           qty: cart.qty + 1,
           items: [...cart.items],
+          total: cart.total + currentItem.price,
         });
       }
     }

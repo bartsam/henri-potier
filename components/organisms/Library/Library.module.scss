@@ -22,7 +22,7 @@
 }
 @include tablet() {
   .library {
-    padding: calc($regularSize * 3);
+    padding: calc($regularSize * 2);
     h2 {
       padding: calc($regularSize * 2) 0;
     }

@@ -1,0 +1,75 @@
+@import "mixins";
+@import "variables";
+
+.item {
+  display: flex;
+  padding: 0 calc($regularSize/2);
+  & + .item {
+    margin-top: $regularSize;
+    border-top: 1px solid $white;
+    padding-top: $regularSize;
+  }
+}
+
+.left {
+  width: 33%;
+  padding: 0 calc($regularSize/2);
+  &:hover {
+    & + .right .title {
+      text-decoration: underline;
+    }
+  }
+}
+
+.right {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 calc($regularSize/2);
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 146%;
+  &:hover {
+    .title {
+      text-decoration: underline;
+    }
+  }
+}
+
+.title {
+  margin: calc($regularSize/2) 0;
+  font-weight: $bold;
+  font-size: $smallFont;
+  text-transform: uppercase;
+  line-height: 120%;
+  color: $black;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: calc($regularSize/2) 0;
+  & > span {
+    flex: 1;
+    padding: 1rem;
+    background: $white;
+    text-align: center;
+  }
+  & > button {
+    width: 3rem;
+  }
+}
+
+.price {
+  font-size: $regularFont;
+  margin: calc($regularSize/2) 0;
+}

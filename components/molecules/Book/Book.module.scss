@@ -39,6 +39,7 @@
   & > span {
     padding: 1rem;
     background: $whiten;
+    pointer-events: none;
   }
 }
 .footer {
