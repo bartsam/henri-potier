@@ -1,7 +1,7 @@
 import styles from "./Cart.module.scss";
-import Item from "components/molecules/Item";
-import { useCart } from "utils/hooks";
-import Button from "components/atoms/Button";
+import Item from "@components/molecules/Item";
+import { useCart } from "@utils/hooks";
+import Button from "@components/atoms/Button";
 
 export default function CartResume() {
   const { cart } = useCart();

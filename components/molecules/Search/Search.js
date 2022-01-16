@@ -1,15 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./Search.module.scss";
-import { normalizeText } from "utils/helpers";
+import { normalizeText } from "@utils/helpers";
+import { useOnClickOutside } from "@utils/hooks";
 import { Search, X } from "react-feather";
-import Button from "components/atoms/Button";
-import Paragraph from "components/atoms/Paragraph";
-import Image from "components/atoms/Image";
+import Button from "@components/atoms/Button";
+import Paragraph from "@components/atoms/Paragraph";
+import Image from "@components/atoms/Image";
 
 const SearchBar = ({ books }) => {
   const [isSearchOpen, seIsSearchOpen] = useState(false);
   const [search, seSearch] = useState("");
   const [results, setResults] = useState([]);
+  const ref = useRef();
+
+  useOnClickOutside(ref, () => seIsSearchOpen(false));
 
   const handleSearch = (event) => {
     seSearch(normalizeText(event.target.value, "search"));
@@ -32,6 +36,7 @@ const SearchBar = ({ books }) => {
         )}
       </Button>
       <div
+        ref={ref}
         className={`${styles.search} ${
           isSearchOpen ? styles["search--on"] : styles["search--off"]
         }`}
@@ -46,7 +51,11 @@ const SearchBar = ({ books }) => {
         </div>
         <div className={styles.results}>
           {results.map((book, key) => (
-            <div className={styles.result} key={key}>
+            <div
+              className={styles.result}
+              key={key}
+              onClick={() => seIsSearchOpen(false)}
+            >
               <Button href={`/book/${normalizeText(book.title, "link")}`}>
                 <div className={styles.cover} key={key}>
                   <Image src={book.cover} alt={book.title} />

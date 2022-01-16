@@ -1,14 +1,14 @@
 import Head from "next/head";
-import Header from "components/organisms/Header";
-import Library from "components/organisms/Library";
-import Wrapper from "components/molecules/Wrapper";
-import Footer from "components/organisms/Footer";
+import Header from "@components/organisms/Header";
+import Library from "@components/organisms/Library";
+import Wrapper from "@components/molecules/Wrapper";
+import Footer from "@components/organisms/Footer";
 
 export default function Home({ books }) {
   return (
     <>
       <Head>
-        <title>Henri Potier</title>
+        <title>Henri Potier Edition</title>
         <meta name="description" content="La bibliothèque d'Henri Potier" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

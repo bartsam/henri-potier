@@ -1,7 +1,7 @@
 import styles from "./Library.module.scss";
-import Book from "components/molecules/Book";
-import Layout from "components/molecules/Layout";
-import Spinner from "components/atoms/Spinner";
+import Book from "@components/molecules/Book";
+import Layout from "@components/molecules/Layout";
+import Spinner from "@components/atoms/Spinner";
 
 export default function Library({ books }) {
   return (

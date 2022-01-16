@@ -1,8 +1,8 @@
 import styles from "./Product.module.scss";
-import Paragraph from "components/atoms/Paragraph";
-import Layout from "components/molecules/Layout";
-import Buy from "components/molecules/Buy";
-import Image from "components/atoms/Image";
+import Paragraph from "@components/atoms/Paragraph";
+import Layout from "@components/molecules/Layout";
+import Buy from "@components/molecules/Buy";
+import Image from "@components/atoms/Image";
 
 export default function Product({ product }) {
   const { title, cover, isbn, price, synopsis } = product;

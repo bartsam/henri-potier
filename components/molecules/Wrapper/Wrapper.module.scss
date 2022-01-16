@@ -7,3 +7,10 @@
   width: calc(100% - $regularSize * 2);
   max-width: 64rem;
 }
+
+@include tablet() {
+  .wrapper {
+    padding: 0 calc($regularSize * 2);
+    width: calc(100% - $regularSize * 4);
+  }
+}

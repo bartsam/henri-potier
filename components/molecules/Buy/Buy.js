@@ -1,10 +1,10 @@
 import styles from "./Buy.module.scss";
-import Paragraph from "components/atoms/Paragraph";
-import Button from "components/atoms/Button";
-import { useCart } from "utils/hooks";
+import Paragraph from "@components/atoms/Paragraph";
+import Button from "@components/atoms/Button";
+import { useCart } from "@utils/hooks";
 import { useState, useEffect } from "react";
 import { ShoppingCart, Plus, Minus } from "react-feather";
-import { useMediaQuery } from "utils/hooks";
+import { useMediaQuery } from "@utils/hooks";
 
 export default function Buy({ product, library }) {
   const { cart, handleCartItems } = useCart();

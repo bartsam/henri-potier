@@ -1,12 +1,12 @@
 import styles from "./Header.module.scss";
-import { useCart } from "utils/hooks";
+import { useCart } from "@utils/hooks";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "assets/images/logo.svg";
-import Button from "components/atoms/Button";
-import Paragraph from "components/atoms/Paragraph";
-import Search from "components/molecules/Search";
-import Wrapper from "components/molecules/Wrapper";
+import Button from "@components/atoms/Button";
+import Paragraph from "@components/atoms/Paragraph";
+import Search from "@components/molecules/Search";
+import Wrapper from "@components/molecules/Wrapper";
 import { ShoppingCart, ChevronLeft } from "react-feather";
 
 export default function Header({ books, breadcrumb, minimize }) {

@@ -1,9 +1,9 @@
 import styles from "./Cart.module.scss";
-import Spinner from "components/atoms/Spinner";
-import { useCart, useFetch } from "utils/hooks";
+import Spinner from "@components/atoms/Spinner";
+import { useCart, useFetch } from "@utils/hooks";
 import { useState, useEffect } from "react";
-import Button from "components/atoms/Button";
-import Paragraph from "components/atoms/Paragraph";
+import Button from "@components/atoms/Button";
+import Paragraph from "@components/atoms/Paragraph";
 import { X } from "react-feather";
 
 export default function CartOffer() {

@@ -58,8 +58,10 @@
     width: auto;
   }
   .offer {
+    position: sticky;
+    top: calc($regularSize * 5);
     flex: 1;
-    margin-left: calc($regularSize * 3);
+    margin-left: calc($regularSize * 2);
   }
   .empty {
     width: calc(100% - $regularSize * 4);
