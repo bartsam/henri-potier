@@ -1,22 +1,31 @@
 //Font
-$book: 300;
-$bold: 700;
+$normalFont: 300;
+$boldFont: 700;
+
 $tinyFont: 0.625rem;
 $smallFont: 0.75rem;
 $regularFont: 1em;
 $mediumFont: 1.25rem;
 $largeFont: 1.5rem;
-$giantFont: 2rem;
 
 // Sizes
 $regularSize: 1.25rem;
 
 // Colors
-$black: #000000;
-$darken: #222222;
-$dark: #261717;
-$greyen: #979797;
+$black: #111111;
+$blacker: #000000;
+
+$dark: #222222;
+$darker: #151515;
+
+$greyer: #888888;
 $grey: #cacaca;
+
+$purpler: #2f1c59;
+$purple: #46328c;
+
 $white: #f0f0f0;
-$whiten: #ffffff;
-$yellow: #f2db94;
+$whiter: #ffffff;
+
+$yellow: #f2eb8d;
+$yellower: #f2e74b;

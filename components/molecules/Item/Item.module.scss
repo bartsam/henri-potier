@@ -3,19 +3,16 @@
 
 .item {
   display: flex;
-  padding: 0 calc($regularSize/2);
+  padding: $regularSize;
   & + .item {
-    margin-top: $regularSize;
-    border-top: 1px solid $white;
-    padding-top: $regularSize;
+    border-top: 1px solid $grey;
   }
 }
 
 .left {
   width: 33%;
-  padding: 0 calc($regularSize/2);
   &:hover {
-    & + .right .title {
+    & + .right > a > p {
       text-decoration: underline;
     }
   }
@@ -25,32 +22,16 @@
   width: 66%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 calc($regularSize/2);
+  justify-content: space-between;
+  padding-left: $regularSize;
+  a {
+    margin-bottom: calc($regularSize/2);
+  }
 }
 
 .cover {
   position: relative;
   width: 100%;
-  height: 0;
-  padding-top: 146%;
-  &:hover {
-    .title {
-      text-decoration: underline;
-    }
-  }
-}
-
-.title {
-  margin: calc($regularSize/2) 0;
-  font-weight: $bold;
-  font-size: $smallFont;
-  text-transform: uppercase;
-  line-height: 120%;
-  color: $black;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .quantity {
@@ -58,10 +39,12 @@
   align-items: center;
   justify-content: space-between;
   margin: calc($regularSize/2) 0;
+  background: $white;
+  border-radius: calc($regularSize/5);
+
   & > span {
     flex: 1;
     padding: 1rem;
-    background: $white;
     text-align: center;
   }
   & > button {
@@ -69,7 +52,21 @@
   }
 }
 
-.price {
-  font-size: $regularFont;
-  margin: calc($regularSize/2) 0;
+.line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@include tablet() {
+  .item {
+    padding: calc($regularSize * 2);
+  }
+  .left {
+    width: 7.75rem;
+  }
+  .right {
+    width: auto;
+    flex: 1;
+  }
 }

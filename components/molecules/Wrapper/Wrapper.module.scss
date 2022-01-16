@@ -1,0 +1,9 @@
+@import "mixins";
+@import "variables";
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0 $regularSize;
+  width: calc(100% - $regularSize * 2);
+  max-width: 64rem;
+}

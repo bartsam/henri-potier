@@ -1,12 +1,18 @@
 import Header from "components/organisms/Header";
-import Search from "components/atoms/Search";
+import Wrapper from "components/molecules/Wrapper";
+import Product from "components/organisms/Product";
 import { normalizeText } from "utils/helpers";
 
 export default function Book({ books, book }) {
   return (
     <>
-      <Header books={books} />
-      <p>{book.title}</p>
+      <Header
+        books={books}
+        breadcrumb={{ label: "Page d'accueil", path: "/", current: book.title }}
+      />
+      <Wrapper>
+        <Product product={book} />
+      </Wrapper>
     </>
   );
 }

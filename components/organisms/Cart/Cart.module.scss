@@ -1,0 +1,67 @@
+@import "mixins";
+@import "variables";
+
+.order,
+.resume,
+.empty {
+  background: $whiter;
+  margin-bottom: $regularSize;
+  border-radius: calc($regularSize/5);
+}
+
+.order {
+  padding: $regularSize;
+}
+.empty {
+  width: calc(100% - $regularSize * 2);
+  padding: $regularSize;
+  & > h2 {
+    margin-top: 0;
+  }
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & > p {
+    margin: calc($regularSize/ 2);
+  }
+}
+
+.buttons {
+  margin-bottom: $regularSize;
+  & > button {
+    width: 100%;
+  }
+}
+
+.alert {
+  background: $purple;
+  color: $whiter;
+  font-size: $smallFont;
+  font-weight: $boldFont;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  border-radius: calc($regularSize/5);
+  margin: $regularSize 0;
+}
+
+@include tablet() {
+  .cart {
+    display: flex;
+    align-items: flex-start;
+  }
+  .resume {
+    width: auto;
+  }
+  .offer {
+    flex: 1;
+    margin-left: calc($regularSize * 3);
+  }
+  .empty {
+    width: calc(100% - $regularSize * 4);
+    padding: calc($regularSize * 2);
+  }
+}

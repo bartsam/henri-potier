@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "components/organisms/Header";
 import Library from "components/organisms/Library";
+import Wrapper from "components/molecules/Wrapper";
 
 export default function Home({ books }) {
   return (
@@ -14,7 +15,9 @@ export default function Home({ books }) {
         <link rel="manifest" href="/manifest.webmanifest" />
       </Head>
       <Header books={books} />
-      <Library books={books} />
+      <Wrapper>
+        <Library books={books} />
+      </Wrapper>
     </>
   );
 }

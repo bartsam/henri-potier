@@ -2,17 +2,13 @@
 @import "variables";
 
 .library {
-  padding: $regularSize;
+  padding: $regularSize 0;
   h2 {
+    color: $white;
     margin: 0;
-    padding-bottom: $regularSize;
+    padding: calc($regularSize/4) 0 $regularSize 0;
     font-size: $largeFont;
   }
-}
-.wrapper {
-  background: $whiten;
-  padding: $regularSize;
-  border-radius: calc($regularSize/5);
 }
 .grid {
   display: grid;
@@ -24,21 +20,16 @@
   .library {
     padding: calc($regularSize * 2);
     h2 {
-      padding: calc($regularSize * 2) 0;
+      padding: calc($regularSize / 2) 0 calc($regularSize * 2) 0;
     }
   }
-  .wrapper {
-    padding: 0 calc($regularSize * 3) calc($regularSize * 3)
-      calc($regularSize * 3);
-  }
-
   .grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @include desktop() {
   .grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }

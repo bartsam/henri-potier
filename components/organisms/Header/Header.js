@@ -1,11 +1,13 @@
 import styles from "./Header.module.scss";
-import Search from "components/atoms/Search";
-import Button from "components/atoms/Button";
-import Logo from "assets/images/logo.svg";
-import Image from "next/image";
-import { ShoppingBag } from "react-feather";
 import { useCart } from "utils/hooks";
 import Link from "next/link";
+import Image from "next/image";
+import Logo from "assets/images/logo.svg";
+import Button from "components/atoms/Button";
+import Paragraph from "components/atoms/Paragraph";
+import Search from "components/molecules/Search";
+import Wrapper from "components/molecules/Wrapper";
+import { ShoppingBag, ChevronLeft } from "react-feather";
 
 export default function Header({ books, breadcrumb, minimize }) {
   const { cart } = useCart();
@@ -28,9 +30,9 @@ export default function Header({ books, breadcrumb, minimize }) {
             <div className={styles.icons}>
               <Button href={`/cart`} label="Cart">
                 <ShoppingBag size={16} color="white" />
-                {cart.qty > 0 && (
+                {cart.quantity > 0 && (
                   <div className={styles.quantity}>
-                    <span>{cart.qty}</span>
+                    <span>{cart.quantity}</span>
                   </div>
                 )}
               </Button>
@@ -40,12 +42,17 @@ export default function Header({ books, breadcrumb, minimize }) {
         </div>
       </div>
       {breadcrumb && (
-        <div className={styles.breadcrumb}>
-          <Button href={breadcrumb.path}>
-            <span>{breadcrumb.label}</span>
-          </Button>
-          <span className={styles.current}>Panier</span>
-        </div>
+        <Wrapper>
+          <div className={styles.breadcrumb}>
+            <Button href={breadcrumb.path}>
+              <Paragraph upper bold small>
+                {breadcrumb.label}
+              </Paragraph>
+            </Button>
+            <ChevronLeft size={16} color="#888888" />
+            <span className={styles.current}>{breadcrumb.current}</span>
+          </div>
+        </Wrapper>
       )}
     </>
   );

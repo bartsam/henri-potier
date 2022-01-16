@@ -4,50 +4,57 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState({
-    qty: 0,
+    quantity: 0,
     items: [],
     total: 0,
   });
 
   const handleCartItems = (action, currentItem) => {
-    const isArlreadyInCart = cart.items.filter(
-      (item) => item.isbn === currentItem.isbn
-    );
-    if (action === "reset" && isArlreadyInCart.length > 0) {
+    const itemArlreadyInCart = cart.items.filter(
+      (item) => item.id === currentItem.isbn
+    )[0];
+
+    if (action === "reset" && itemArlreadyInCart) {
       setCart({
         ...cart,
-        qty: cart.qty - 1,
-        items: cart.items.filter((item) => {
-          return item.isbn !== currentItem.isbn;
-        }),
+        quantity: cart.quantity - 1,
         total: cart.total - currentItem.price,
+        items: cart.items.filter((item) => {
+          return item.id !== currentItem.isbn;
+        }),
       });
     }
-    if (action === "remove" && isArlreadyInCart.length > 0) {
-      currentItem.qty -= 1;
+    if (action === "remove" && itemArlreadyInCart) {
+      itemArlreadyInCart.qty -= 1;
       setCart({
         ...cart,
-        qty: cart.qty - 1,
-        items: [...cart.items],
         total: cart.total - currentItem.price,
+        quantity: cart.quantity - 1,
       });
     }
     if (action === "add") {
-      if (isArlreadyInCart.length === 0) {
-        currentItem.qty = 1;
+      if (itemArlreadyInCart) {
+        itemArlreadyInCart.qty += 1;
         setCart({
           ...cart,
-          qty: cart.qty + 1,
-          items: [...cart.items, currentItem],
           total: cart.total + currentItem.price,
+          quantity: cart.quantity + 1,
         });
       } else {
-        currentItem.qty += 1;
         setCart({
           ...cart,
-          qty: cart.qty + 1,
-          items: [...cart.items],
           total: cart.total + currentItem.price,
+          quantity: cart.quantity + 1,
+          items: [
+            ...cart.items,
+            {
+              id: currentItem.isbn,
+              name: currentItem.title,
+              image: currentItem.cover,
+              price: currentItem.price,
+              qty: 1,
+            },
+          ],
         });
       }
     }

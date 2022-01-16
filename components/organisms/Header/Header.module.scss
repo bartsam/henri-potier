@@ -12,8 +12,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: $whiten;
-  background: $dark;
+  color: $whiter;
+  background: $purpler;
+  box-shadow: 0 2px 8px rgba($blacker, 0.25);
 }
 .logo {
   display: flex;
@@ -45,7 +46,7 @@
   justify-content: center;
   span {
     font-size: $tinyFont;
-    font-weight: $bold;
+    font-weight: $boldFont;
     color: $black;
     letter-spacing: -1px;
     margin-left: -1px;
@@ -54,18 +55,17 @@
 .breadcrumb {
   display: flex;
   align-items: center;
-  padding: 0 $regularSize;
-  .button {
-    background: red;
+  padding: $regularSize 0;
+  svg {
+    margin: 0 calc($regularSize/2);
+  }
+  a {
+    color: $white;
   }
 }
 .current {
-  font-weight: $bold;
+  font-weight: $boldFont;
   font-size: $smallFont;
   text-transform: uppercase;
-  color: $greyen;
-  &::before {
-    content: ">";
-    margin: 0 calc($regularSize/2);
-  }
+  color: $greyer;
 }

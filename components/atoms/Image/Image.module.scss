@@ -1,0 +1,13 @@
+@import "variables";
+
+.cover {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: $white;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 146%;
+  }
+}

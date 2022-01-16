@@ -5,45 +5,35 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: calc($regularSize/2);
   border-radius: calc($regularSize/5);
-  background: $white;
-  &:hover {
-    .title {
-      text-decoration: underline;
-    }
-  }
+  background: $whiter;
+  color: $black;
+  overflow: hidden;
 }
 .cover {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-top: 146%;
-}
-.title {
-  margin: calc($regularSize/2) 0;
-  font-weight: $bold;
-  font-size: $smallFont;
-  text-transform: uppercase;
-  line-height: 120%;
-  color: $black;
-}
-.price {
-  font-size: $mediumFont;
-  margin: 0;
-}
-.quantity {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  & > span {
-    padding: 1rem;
-    background: $whiten;
-    pointer-events: none;
+  &:hover + p {
+    text-decoration: underline;
+  }
+  & + p {
+    margin: calc($regularSize/2) 0;
+    padding: 0 calc($regularSize/2);
+    color: $black;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 .footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 calc($regularSize/2) calc($regularSize/2) calc($regularSize/2);
+  & > p {
+    margin-right: calc($regularSize/2);
+  }
+  & > div {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
 }

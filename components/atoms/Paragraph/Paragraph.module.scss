@@ -1,0 +1,46 @@
+@import "variables";
+
+.paragraph {
+  font-size: $regularFont;
+  line-height: 120%;
+  margin: 0;
+  &--normal {
+    font-weight: $normalFont;
+  }
+  &--bold {
+    font-weight: $boldFont;
+  }
+  &--small {
+    font-size: $smallFont;
+  }
+  &--tiny {
+    font-size: $tinyFont;
+  }
+  &--regular {
+    font-size: $regularFont;
+  }
+  &--medium {
+    font-size: $mediumFont;
+  }
+  &--large {
+    font-size: $largeFont;
+  }
+  &--upper {
+    text-transform: uppercase;
+  }
+  &--fade {
+    color: $grey;
+  }
+  &--fader {
+    color: $greyer;
+  }
+  &--black {
+    color: $black;
+  }
+  &--white {
+    color: $white;
+  }
+  &--crossed {
+    text-decoration: line-through;
+  }
+}

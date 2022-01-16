@@ -1,0 +1,104 @@
+@import "mixins";
+@import "variables";
+
+.search {
+  position: fixed;
+  top: calc($regularSize * 3);
+  right: 0;
+  background: $darker;
+  width: 100vw;
+  overflow: hidden;
+  &--on {
+    opacity: 1;
+    height: calc(100vh - $regularSize * 3);
+    transition: height 300ms ease-out;
+  }
+  &--off {
+    opacity: 0;
+    height: 0;
+    transition: all 300ms ease-in;
+  }
+}
+
+.field {
+  position: relative;
+  padding: $regularSize;
+  border-bottom: 1px solid $blacker;
+  svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: calc($regularSize * 2);
+    pointer-events: none;
+  }
+}
+
+.input {
+  width: calc(100% - $regularSize * 2);
+  height: 3rem;
+  padding: 0 $regularSize;
+  border: 1px solid $blacker;
+  border-radius: calc($regularSize/5);
+  color: $white;
+  background: $dark;
+  &:focus-visible,
+  &focus {
+    outline: none;
+    border-color: $yellow;
+  }
+  &::placeholder {
+    color: $white;
+  }
+}
+
+.results {
+  height: calc(100% - 5.625rem);
+  overflow-y: auto;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: calc($regularSize * 3);
+    background: linear-gradient(transparent, $black);
+  }
+}
+.result {
+  display: flex;
+  background: $darker;
+  padding: calc($regularSize/2) $regularSize;
+  &:hover {
+    background: $dark;
+  }
+  & + .result {
+    border-top: 1px solid $blacker;
+  }
+  & > a {
+    color: $white;
+    width: calc(100% - $regularSize/2);
+  }
+}
+
+.cover {
+  position: relative;
+  width: 2rem;
+  & + span {
+    margin-left: $regularSize/2;
+  }
+}
+
+@include tablet() {
+  .search {
+    height: calc(100vh - $regularSize * 3);
+    box-shadow: -2px 6px 8px rgba($blacker, 0.25);
+
+    &--on {
+      width: 25rem;
+      transition: width 300ms ease-out;
+    }
+    &--off {
+      width: 0;
+      transition: all 300ms ease-in;
+    }
+  }
+}

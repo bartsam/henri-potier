@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import Button from "components/atoms/Button";
-import { Search, X } from "react-feather";
-import { normalizeText } from "../../../utils/helpers";
 import styles from "./Search.module.scss";
+import { normalizeText } from "utils/helpers";
+import { Search, X } from "react-feather";
+import Button from "components/atoms/Button";
+import Paragraph from "components/atoms/Paragraph";
+import Image from "components/atoms/Image";
 
 const SearchBar = ({ books }) => {
   const [isSearchOpen, seIsSearchOpen] = useState(false);
@@ -35,18 +36,26 @@ const SearchBar = ({ books }) => {
           isSearchOpen ? styles["search--on"] : styles["search--off"]
         }`}
       >
-        <div className={styles.wrapper}>
+        <div className={styles.field}>
           <input
             className={styles.input}
-            placeholder="Search"
+            placeholder="Rechercher un livre"
             onChange={(e) => handleSearch(e)}
           />
+          <Search size={16} color="white" />
+        </div>
+        <div className={styles.results}>
           {results.map((book, key) => (
-            <li key={key}>
-              <Link href={`/book/${normalizeText(book.title, "link")}`}>
-                <a>{book.title}</a>
-              </Link>
-            </li>
+            <div className={styles.result} key={key}>
+              <Button href={`/book/${normalizeText(book.title, "link")}`}>
+                <div className={styles.cover} key={key}>
+                  <Image src={book.cover} alt={book.title} />
+                </div>
+                <Paragraph upper small white bold>
+                  {book.title}
+                </Paragraph>
+              </Button>
+            </div>
           ))}
         </div>
       </div>

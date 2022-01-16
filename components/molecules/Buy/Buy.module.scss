@@ -1,0 +1,25 @@
+@import "mixins";
+@import "variables";
+
+.buy {
+  display: flex;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: $white;
+  border-radius: calc($regularSize/5);
+  & > * {
+    height: 3rem;
+  }
+  & > p {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+}

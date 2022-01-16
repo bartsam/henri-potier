@@ -1,0 +1,14 @@
+@import "mixins";
+@import "variables";
+
+.layout {
+  background: $darker;
+  padding: $regularSize;
+  border-radius: calc($regularSize/5);
+}
+
+@include tablet() {
+  .layout {
+    padding: calc($regularSize * 2);
+  }
+}

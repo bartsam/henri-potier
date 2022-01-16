@@ -2,31 +2,42 @@
 
 .button {
   position: relative;
-  border: 0;
-  background-color: transparent;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  min-height: calc(48px - 2rem);
-  min-width: calc(48px - 2rem);
-  cursor: pointer;
+  border: 0;
   outline: 0;
-  color: $black;
+  cursor: pointer;
+  background-color: transparent;
   transition: all 300ms ease-in-out;
   & > * {
     transition: all 300ms ease-in-out;
   }
+  & > p,
   & > span {
-    font-weight: $bold;
-    font-size: $smallFont;
-    text-transform: uppercase;
+    padding: 1rem;
     margin: -1rem;
+    display: inline-block;
+  }
+  & > svg {
+    display: block;
+    padding: 1rem;
+    & + p,
+    & + span {
+      margin: 0;
+    }
+  }
+  & > svg,
+  & > div {
+    & + p,
+    & + span {
+      margin-left: calc($regularSize/2);
+    }
   }
   &:hover,
   &:focus-visible {
+    & > p,
     & > span {
-      opacity: 0.5;
+      text-decoration: underline;
     }
     & > svg {
       display: block;
@@ -34,12 +45,17 @@
       transform: scale(1.2);
     }
   }
-  & > svg {
-    display: block;
-  }
 
   &--primary {
-    color: $white;
+    color: $black;
+    background: $yellower;
+    &:hover,
+    &:focus-visible {
+      background: $yellow;
+    }
+  }
+  &--secondary {
+    color: $black;
     background: $yellow;
   }
   &--dark {
@@ -52,17 +68,30 @@
   }
 
   &--primary,
+  &--secondary,
   &--light,
   &--dark {
+    justify-content: center;
+    padding: 1rem;
+    min-height: calc(48px - 2rem);
+    min-width: calc(48px - 2rem);
     border-radius: calc($regularSize/5);
+    & > p,
     & > span {
       margin: 0;
+      padding: 0;
+    }
+    & > svg {
+      padding: 0;
     }
     &:hover,
     &:focus-visible {
       opacity: 0.8;
+      text-decoration: none;
+      & > p,
       & > span {
         opacity: 1;
+        text-decoration: none;
       }
     }
   }

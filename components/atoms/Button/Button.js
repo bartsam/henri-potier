@@ -1,14 +1,15 @@
 import styles from "./Button.module.scss";
 import Link from "next/link";
 
-const Button = ({ href, event, label, icon, theme, children }) => {
+const Button = ({ href, event, label, className, theme, children }) => {
   return href !== undefined ? (
     <Link href={href}>
       <a
         aria-label={label}
-        className={`${styles.button} ${
-          theme ? styles[`button--${theme}`] : ""
-        }`}
+        className={`
+          ${styles.button} 
+          ${theme ? styles[`button--${theme}`] : ""}
+        `}
       >
         {children}
       </a>
