@@ -18,12 +18,13 @@
 }
 @include tablet() {
   .library {
-    padding: calc($regularSize * 2);
+    padding: calc($regularSize * 2) 0;
     h2 {
       padding: calc($regularSize / 2) 0 calc($regularSize * 2) 0;
     }
   }
   .grid {
+    grid-gap: calc($regularSize * 2);
     grid-template-columns: repeat(3, 1fr);
   }
 }

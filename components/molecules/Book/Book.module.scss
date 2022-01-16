@@ -9,6 +9,9 @@
   background: $whiter;
   color: $black;
   overflow: hidden;
+  a + div {
+    padding: 0 calc($regularSize/2) calc($regularSize/2) calc($regularSize/2);
+  }
 }
 .cover {
   &:hover + p {
@@ -23,17 +26,39 @@
     }
   }
 }
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 calc($regularSize/2) calc($regularSize/2) calc($regularSize/2);
-  & > p {
-    margin-right: calc($regularSize/2);
-  }
-  & > div {
+
+.title {
+  padding: calc($regularSize/2);
+  p:first-child {
     flex: 1;
+    margin-right: calc($regularSize/2);
+    margin-bottom: calc($regularSize/2);
+  }
+}
+
+// .footer {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 0 calc($regularSize/2) calc($regularSize/2) calc($regularSize/2);
+//   & > p {
+//     margin-right: calc($regularSize/2);
+//   }
+//   & > div {
+//     flex: 1;
+//     display: flex;
+//     justify-content: flex-end;
+//   }
+// }
+
+@include tablet() {
+  .book a + div {
+    padding: 0 $regularSize $regularSize $regularSize;
+  }
+  .title {
     display: flex;
-    justify-content: flex-end;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: $regularSize;
   }
 }

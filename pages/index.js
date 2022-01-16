@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "components/organisms/Header";
 import Library from "components/organisms/Library";
 import Wrapper from "components/molecules/Wrapper";
+import Footer from "components/organisms/Footer";
 
 export default function Home({ books }) {
   return (
@@ -18,6 +19,7 @@ export default function Home({ books }) {
       <Wrapper>
         <Library books={books} />
       </Wrapper>
+      <Footer />
     </>
   );
 }

@@ -1,0 +1,18 @@
+@import "mixins";
+@import "variables";
+
+.footer {
+  padding-left: $regularSize;
+  width: calc(100% - $regularSize * 2);
+  background: $purpler;
+  margin-top: $regularSize;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

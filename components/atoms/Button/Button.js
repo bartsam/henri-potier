@@ -1,9 +1,9 @@
 import styles from "./Button.module.scss";
 import Link from "next/link";
 
-const Button = ({ href, event, label, className, theme, children }) => {
+const Button = ({ href, event, label, passHref, theme, children }) => {
   return href !== undefined ? (
-    <Link href={href}>
+    <Link href={href} passHref={passHref}>
       <a
         aria-label={label}
         className={`

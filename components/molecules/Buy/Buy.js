@@ -3,11 +3,13 @@ import Paragraph from "components/atoms/Paragraph";
 import Button from "components/atoms/Button";
 import { useCart } from "utils/hooks";
 import { useState, useEffect } from "react";
-import { Plus, Minus, ShoppingCart } from "react-feather";
+import { ShoppingCart, Plus, Minus } from "react-feather";
+import { useMediaQuery } from "utils/hooks";
 
-export default function Buy({ product }) {
+export default function Buy({ product, library }) {
   const { cart, handleCartItems } = useCart();
   const [quantity, setQuantity] = useState(0);
+  const isDesktop = useMediaQuery("(min-width: 48rem)");
 
   useEffect(() => {
     const item = cart.items.filter((item) => item.id === product.isbn);
@@ -15,6 +17,7 @@ export default function Buy({ product }) {
       setQuantity(item[0].qty);
     }
   }, [cart.items, product.isbn]);
+
   return (
     <div className={styles.buy}>
       {quantity ? (
@@ -52,7 +55,13 @@ export default function Buy({ product }) {
           theme="primary"
           event={() => handleCartItems("add", product)}
         >
-          <ShoppingCart size={16} color="black" />
+          {!isDesktop && library ? (
+            <ShoppingCart size={16} color="black" />
+          ) : (
+            <Paragraph bold upper small>
+              Ajouter au panier
+            </Paragraph>
+          )}
         </Button>
       )}
     </div>
