@@ -52,6 +52,7 @@
   .cart {
     display: flex;
     align-items: flex-start;
+    min-height: calc(100vh - 11.5rem);
   }
   .resume {
     width: auto;

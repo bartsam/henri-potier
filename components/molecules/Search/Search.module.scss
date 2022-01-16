@@ -83,7 +83,7 @@
   position: relative;
   width: 2rem;
   & + span {
-    margin-left: $regularSize/2;
+    margin-left: calc($regularSize/2);
   }
 }
 

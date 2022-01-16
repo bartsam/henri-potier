@@ -1,3 +1,9 @@
+## Projet Biblihothèque d'Henri Potier
+
+Framework Server Side Rendering : NextJS
+Design responsive : SASS
+Tests unitaires : Jest
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
