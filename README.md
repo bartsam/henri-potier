@@ -2,7 +2,7 @@
 
 [Exercice technique](https://github.com/xebia-france/recruitment-tests/blob/master/ExerciceFront.md) pour Publicis Sapient.
 
-Version deployée: [https://henri-potier-ten.vercel.app/](https://henri-potier-ten.vercel.app/)
+Version deployée: [https://henri-potier-bartsam.vercel.app/](https://henri-potier-bartsam.vercel.app/)
 
 ## Technologies
 
