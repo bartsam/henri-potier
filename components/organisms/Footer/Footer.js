@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <div className={styles.footer}>
       <Paragraph upper bold tiny white>
-        Projet sur GitHub créé et développé par Samuel Bart
+        Exercice développé par Samuel Bart
       </Paragraph>
       <div className={styles.social}>
         <Button label="Github" href="https://github.com/bartsam" external>

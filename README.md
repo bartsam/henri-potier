@@ -1,12 +1,37 @@
 ## Projet Biblihothèque d'Henri Potier
 
-Framework Server Side Rendering : NextJS
-Design responsive : SASS
-Tests unitaires : Jest
+[Exercice technique](https://github.com/xebia-france/recruitment-tests/blob/master/ExerciceFront.md) pour Publicis Sapient.
+
+[Version deployé](https://henri-potier-ten.vercel.app/)
+
+## Technologies
+
+- Framework JavaScript : [NextJS](https://nextjs.org/)
+- Design responsive : [SASS](https://sass-lang.com/)
+- Tests unitaires : [Jest](https://jestjs.io/fr/) + [Testing Library](https://testing-library.com/)
+- Déploiement : [Vercel](https://vercel.com/)
+
+## Fonctionnalités
+
+Brief :
+
+- [x] Interface affichant les livres disponibles à l'achat
+- [x] Outils de recherche libre parmis les livres disponibles
+- [x] Interface récapitulative du panier appliquant la meilleure offre commerciale possible
+- [x] Design moderne et responsive
+- [x] Tests unitaires
+
+Bonus :
+
+- [x] Interface présentant les livres individuellement
+- [x] Editions de la quantité de livre ajouté au panier
+- [x] Navigation accessible au clavier
+
+## Lancer le projet
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+### Dev
 
 First, run the development server:
 
@@ -18,23 +43,32 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+You can start editing and pages auto-updates as you edit a file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Test
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Run all the tests
 
-## Learn More
+```bash
+npm run test
+# or
+yarn test
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Prod
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Builds the application for production usage:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run build
+# or
+yarn build
+```
 
-## Deploy on Vercel
+Starts a Next.js production server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+npm run start
+# or
+yarn start
+```
