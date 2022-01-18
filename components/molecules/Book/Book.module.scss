@@ -34,7 +34,7 @@
   padding: calc($regularSize/2);
   p:first-child {
     flex: 1;
-    margin-right: calc($regularSize/2);
+    margin-bottom: calc($regularSize/4);
   }
 }
 
@@ -47,5 +47,8 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: $regularSize;
+    p:first-child {
+      margin-right: calc($regularSize/2);
+    }
   }
 }
