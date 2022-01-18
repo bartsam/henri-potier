@@ -1,17 +1,18 @@
 import styles from "./Cart.module.scss";
-import Spinner from "@components/atoms/Spinner";
-import { useCart, useFetch } from "@utils/hooks";
+import { useFetch } from "utils/hooks";
+import { calculOffers } from "utils/helpers";
 import { useState, useEffect } from "react";
-import Button from "@components/atoms/Button";
-import Paragraph from "@components/atoms/Paragraph";
+import Button from "components/atoms/Button";
+import Spinner from "components/atoms/Spinner";
+import Paragraph from "components/atoms/Paragraph";
 import { X } from "react-feather";
 
-export default function CartOffer() {
-  const { cart } = useCart();
+export default function CartOffer({ cart }) {
   const [promotion, setPromotion] = useState(0);
   const [alert, setAlert] = useState(false);
 
   const itemsIsbnString = cart.items.map((item) => item.id).toString();
+
   const { data, isLoading, error } = useFetch(
     `https://henri-potier.techx.fr/books/${itemsIsbnString}/commercialOffers`,
     itemsIsbnString.length > 0
@@ -19,30 +20,7 @@ export default function CartOffer() {
 
   useEffect(() => {
     if (data && !isLoading && !error) {
-      let promo = 0;
-      data.offers.forEach((offer) => {
-        if (offer.type === "percentage") {
-          const value = 1 - offer.value / 100;
-          if (promo < value) {
-            promo = value;
-          }
-        }
-        if (offer.type === "minus") {
-          const value = offer.value;
-          if (promo < value) {
-            promo = value;
-          }
-        }
-        if (offer.type === "slice") {
-          const slice = Math.trunc(cart.total / offer.sliceValue);
-          const value =
-            cart.total >= 100 && slice >= 1 ? slice * offer.value : 0;
-          if (promo < value) {
-            promo = value;
-          }
-        }
-        setPromotion(promo);
-      });
+      setPromotion(calculOffers(data.offers, cart.total));
     }
   }, [data, cart.total, isLoading, error]);
 
@@ -74,9 +52,9 @@ export default function CartOffer() {
                 <Paragraph bold medium upper>
                   Total
                 </Paragraph>
-                <Paragraph bold medium>{`${
-                  cart.total - promotion
-                }€`}</Paragraph>
+                <Paragraph bold medium>
+                  {`${cart.total - promotion}€`}
+                </Paragraph>
               </div>
             </div>
           )}

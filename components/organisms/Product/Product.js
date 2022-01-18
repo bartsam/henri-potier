@@ -1,8 +1,8 @@
 import styles from "./Product.module.scss";
-import Paragraph from "@components/atoms/Paragraph";
-import Layout from "@components/molecules/Layout";
-import Buy from "@components/molecules/Buy";
-import Image from "@components/atoms/Image";
+import Paragraph from "components/atoms/Paragraph";
+import Layout from "components/molecules/Layout";
+import AddToBag from "components/molecules/AddToBag";
+import Image from "components/atoms/Image";
 
 export default function Product({ product }) {
   const { title, cover, isbn, price, synopsis } = product;
@@ -24,7 +24,7 @@ export default function Product({ product }) {
                 {`${price}€`}
               </Paragraph>
             </div>
-            <Buy product={product} />
+            <AddToBag product={product} />
           </div>
         </div>
         <div className={styles.synopsis}>

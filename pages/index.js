@@ -1,8 +1,9 @@
 import Head from "next/head";
-import Header from "@components/organisms/Header";
-import Library from "@components/organisms/Library";
-import Wrapper from "@components/molecules/Wrapper";
-import Footer from "@components/organisms/Footer";
+import Spinner from "components/atoms/Spinner";
+import Wrapper from "components/molecules/Wrapper";
+import Header from "components/organisms/Header";
+import Library from "components/organisms/Library";
+import Footer from "components/organisms/Footer";
 
 export default function Home({ books }) {
   return (
@@ -17,7 +18,7 @@ export default function Home({ books }) {
       </Head>
       <Header books={books} />
       <Wrapper>
-        <Library books={books} />
+        {books ? <Library books={books} /> : <Spinner theme="light" />}
       </Wrapper>
       <Footer />
     </>

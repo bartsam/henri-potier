@@ -1,12 +1,12 @@
 import styles from "./Item.module.scss";
 import Link from "next/link";
-import { normalizeText } from "@utils/helpers";
-import { useCart } from "@utils/hooks";
-import Button from "@components/atoms/Button";
-import Image from "@components/atoms/Image";
-import Paragraph from "@components/atoms/Paragraph";
+import { normalizeText } from "utils/helpers";
+import { useCart } from "utils/hooks";
+import Button from "components/atoms/Button";
+import Image from "components/atoms/Image";
+import Paragraph from "components/atoms/Paragraph";
 import { Plus, Minus } from "react-feather";
-import { useMediaQuery } from "@utils/hooks";
+import { useMediaQuery } from "utils/hooks";
 
 export default function Item({ item }) {
   const { handleCartItems } = useCart();

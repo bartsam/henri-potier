@@ -1,11 +1,13 @@
 import Head from "next/head";
-import Header from "@components/organisms/Header";
-import Footer from "@components/organisms/Footer";
-import styles from "@components/organisms/Cart/Cart.module.scss";
-import { CartResume, CartOffer } from "@components/organisms/Cart";
-import Wrapper from "@components/molecules/Wrapper";
+import Header from "components/organisms/Header";
+import Footer from "components/organisms/Footer";
+import styles from "components/organisms/Cart/Cart.module.scss";
+import { CartResume, CartOffer } from "components/organisms/Cart";
+import Wrapper from "components/molecules/Wrapper";
+import { useCart } from "utils/hooks";
 
 export default function Cart() {
+  const { cart } = useCart();
   return (
     <>
       <Head>
@@ -22,8 +24,8 @@ export default function Cart() {
       />
       <Wrapper>
         <div className={styles.cart}>
-          <CartResume />
-          <CartOffer />
+          <CartResume cart={cart} />
+          <CartOffer cart={cart} />
         </div>
       </Wrapper>
       <Footer />

@@ -1,12 +1,12 @@
-import styles from "./Buy.module.scss";
-import Paragraph from "@components/atoms/Paragraph";
-import Button from "@components/atoms/Button";
-import { useCart } from "@utils/hooks";
+import styles from "./AddToBag.module.scss";
+import Paragraph from "components/atoms/Paragraph";
+import Button from "components/atoms/Button";
+import { useCart } from "utils/hooks";
 import { useState, useEffect } from "react";
 import { ShoppingCart, Plus, Minus } from "react-feather";
-import { useMediaQuery } from "@utils/hooks";
+import { useMediaQuery } from "utils/hooks";
 
-export default function Buy({ product, library }) {
+export default function AddToBag({ product, library }) {
   const { cart, handleCartItems } = useCart();
   const [quantity, setQuantity] = useState(0);
   const isDesktop = useMediaQuery("(min-width: 48rem)");
@@ -23,7 +23,7 @@ export default function Buy({ product, library }) {
       {quantity ? (
         <div className={styles.quantity}>
           <Button
-            label="Add to bag"
+            label="remove from bag"
             theme="primary"
             event={() => {
               if (quantity > 1) {
@@ -35,9 +35,13 @@ export default function Buy({ product, library }) {
               }
             }}
           >
-            <Minus size={16} color="black" />
+            <span data-testid="buy-remove">
+              <Minus size={16} color="black" />
+            </span>
           </Button>
-          <Paragraph>{quantity}</Paragraph>
+          <Paragraph>
+            <span data-testid="buy-quantity">{quantity}</span>
+          </Paragraph>
           <Button
             label="Add to bag"
             theme="primary"
@@ -59,7 +63,7 @@ export default function Buy({ product, library }) {
             <ShoppingCart size={16} color="black" />
           ) : (
             <Paragraph bold upper small>
-              Ajouter au panier
+              <span data-testid="buy-add">Ajouter au panier</span>
             </Paragraph>
           )}
         </Button>

@@ -9,21 +9,24 @@
   background: $whiter;
   color: $black;
   overflow: hidden;
-  a + div {
-    padding: 0 calc($regularSize/2) calc($regularSize/2) calc($regularSize/2);
+  a {
+    outline: none;
+    &:focus,
+    &:hover {
+      .title p:first-child {
+        text-decoration: underline;
+      }
+    }
+    & + div {
+      padding: 0 calc($regularSize/2) calc($regularSize/2) calc($regularSize/2);
+    }
   }
 }
 .cover {
-  &:hover + p {
-    text-decoration: underline;
-  }
   & + p {
     margin: calc($regularSize/2) 0;
     padding: 0 calc($regularSize/2);
     color: $black;
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 
@@ -32,24 +35,8 @@
   p:first-child {
     flex: 1;
     margin-right: calc($regularSize/2);
-    margin-bottom: calc($regularSize/2);
   }
 }
-
-// .footer {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   padding: 0 calc($regularSize/2) calc($regularSize/2) calc($regularSize/2);
-//   & > p {
-//     margin-right: calc($regularSize/2);
-//   }
-//   & > div {
-//     flex: 1;
-//     display: flex;
-//     justify-content: flex-end;
-//   }
-// }
 
 @include tablet() {
   .book a + div {

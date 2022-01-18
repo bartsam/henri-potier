@@ -1,7 +1,15 @@
 import styles from "./Button.module.scss";
 import Link from "next/link";
 
-const Button = ({ href, event, external, label, theme, children }) => {
+const Button = ({
+  href,
+  event,
+  external,
+  label,
+  theme,
+  children,
+  ...props
+}) => {
   return href !== undefined ? (
     <Link href={href}>
       <a
@@ -11,6 +19,7 @@ const Button = ({ href, event, external, label, theme, children }) => {
           ${theme ? styles[`button--${theme}`] : ""}
         `}
         target={external && "_blank"}
+        {...props}
       >
         {children}
       </a>
@@ -22,6 +31,7 @@ const Button = ({ href, event, external, label, theme, children }) => {
       onClick={(e) => {
         event();
       }}
+      {...props}
     >
       {children}
     </button>

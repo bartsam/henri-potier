@@ -1,3 +1,3 @@
-import { normalizeText } from "./helpers";
+import { normalizeText, calculOffers } from "./helpers";
 
-export { normalizeText };
+export { normalizeText, calculOffers };

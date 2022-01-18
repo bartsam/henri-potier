@@ -1,9 +1,9 @@
 import Head from "next/head";
-import Header from "@components/organisms/Header";
-import Wrapper from "@components/molecules/Wrapper";
-import Footer from "@components/organisms/Footer";
-import Product from "@components/organisms/Product";
-import { normalizeText } from "@utils/helpers";
+import Header from "components/organisms/Header";
+import Wrapper from "components/molecules/Wrapper";
+import Footer from "components/organisms/Footer";
+import Product from "components/organisms/Product";
+import { normalizeText } from "utils/helpers";
 
 export default function Book({ books, book }) {
   return (

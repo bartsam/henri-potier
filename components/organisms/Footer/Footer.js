@@ -1,6 +1,6 @@
 import styles from "./Footer.module.scss";
-import Paragraph from "@components/atoms/Paragraph";
-import Button from "@components/atoms/Button";
+import Paragraph from "components/atoms/Paragraph";
+import Button from "components/atoms/Button";
 import { GitPullRequest, Linkedin, Link } from "react-feather";
 
 export default function Footer() {
