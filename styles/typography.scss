@@ -1,22 +1,4 @@
-$fontFamily: "Avenir", "Helvetica Neue", sans-serif;
-
-@font-face {
-  font-family: "Avenir";
-  font-weight: 300;
-  font-style: normal;
-  font-display: optional;
-  src: local("Avenir Book"), local("Avenir-300"),
-    url("../assets/fonts/Avenir-Book.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Avenir";
-  font-weight: 700;
-  font-style: normal;
-  font-display: optional;
-  src: local("Avenir Heavy"), local("Avenir-700"),
-    url("../assets/fonts/Avenir-Heavy.woff2") format("woff2");
-}
+$fontFamily: "Montserrat", sans-serif;
 
 html {
   font-size: $regularFont;

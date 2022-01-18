@@ -20,7 +20,7 @@ export default function CartOffer({ cart }) {
 
   useEffect(() => {
     if (data && !isLoading && !error) {
-      setPromotion(calculOffers(data.offers, cart.total));
+      setPromotion(calculOffers(data.offers, cart.total).toFixed(2));
     }
   }, [data, cart.total, isLoading, error]);
 
@@ -53,7 +53,7 @@ export default function CartOffer({ cart }) {
                   Total
                 </Paragraph>
                 <Paragraph bold medium>
-                  {`${cart.total - promotion}€`}
+                  {`${(cart.total - promotion).toFixed(2)}€`}
                 </Paragraph>
               </div>
             </div>

@@ -35,6 +35,7 @@ export default function Header({ books, breadcrumb, minimize }) {
           </Link>
           {!minimize && (
             <div className={styles.icons}>
+              {books && <Search books={books} />}
               <Button href={`/cart`} label="Cart">
                 <ShoppingCart size={16} color="white" />
                 {cart.quantity > 0 && (
@@ -43,7 +44,6 @@ export default function Header({ books, breadcrumb, minimize }) {
                   </div>
                 )}
               </Button>
-              {books && <Search books={books} />}
             </div>
           )}
         </div>

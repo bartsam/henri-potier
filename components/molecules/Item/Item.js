@@ -23,7 +23,7 @@ export default function Item({ item }) {
       <Link href={path}>
         <a className={styles.left}>
           <div className={styles.cover}>
-            <Image src={item.image} alt={item.name} />
+            <Image src={item.image} alt={item.name} priority />
           </div>
         </a>
       </Link>

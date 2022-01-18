@@ -18,7 +18,13 @@ export default function Home({ books }) {
       </Head>
       <Header books={books} />
       <Wrapper>
-        {books ? <Library books={books} /> : <Spinner theme="light" />}
+        {books ? (
+          <Library books={books} />
+        ) : (
+          <div data-testid="loader">
+            <Spinner theme="light" />
+          </div>
+        )}
       </Wrapper>
       <Footer />
     </>
