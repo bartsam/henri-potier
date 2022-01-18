@@ -1,8 +1,8 @@
-## Projet Biblihothèque d'Henri Potier
+## Projet Bibliothèque d'Henri Potier
 
 [Exercice technique](https://github.com/xebia-france/recruitment-tests/blob/master/ExerciceFront.md) pour Publicis Sapient.
 
-[Version deployé](https://henri-potier-ten.vercel.app/)
+[Version deployée](https://henri-potier-ten.vercel.app/)
 
 ## Technologies
 
@@ -16,7 +16,7 @@
 Brief :
 
 - [x] Interface affichant les livres disponibles à l'achat
-- [x] Outils de recherche libre parmis les livres disponibles
+- [x] Outils de recherche libre parmi les livres disponibles
 - [x] Interface récapitulative du panier appliquant la meilleure offre commerciale possible
 - [x] Design moderne et responsive
 - [x] Tests unitaires
@@ -24,7 +24,7 @@ Brief :
 Bonus :
 
 - [x] Interface présentant les livres individuellement
-- [x] Editions de la quantité de livre ajouté au panier
+- [x] Editions de la quantité de livre ajoutée au panier
 - [x] Navigation accessible au clavier
 
 ## Lancer le projet
