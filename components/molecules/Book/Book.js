@@ -13,7 +13,7 @@ export default function Book({ book }) {
       <Link href={path}>
         <a>
           <div className={styles.cover}>
-            <Image src={cover} alt={title} />
+            <Image src={cover} alt={title} priority />
           </div>
           <div className={styles.title}>
             <Paragraph upper small bold black>
